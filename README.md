@@ -21,5 +21,5 @@
         DB_USERNAME= <username>
         DB_PASSWORD= <password>
 ##### 7. Chạy `php artisan migrate` để tạo database. Xem thêm [php artisan](https://laravel.com/docs/7.x/artisan#introduction).
-##### 8. Chạy `php artisan serve` để chạy serve và Frontend mặt định tại `localhost:8000/` .  
-##### 9. Chạy `npm run` hoặc `npm run dev` để chạy Front end.
+##### 8. Chạy `php artisan serve` để chạy serve và Frontend mặc định tại `localhost:8000/` .  
+##### 9. Chạy `npm run` hoặc `npm run dev` để chạy Frontend.
