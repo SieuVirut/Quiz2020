@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/users', function(){
+    return view('users.list');
+});
+Route::resource('user', 'UserController');
+Route::post('/login', 'UserController@login');

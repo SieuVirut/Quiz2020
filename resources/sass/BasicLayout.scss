@@ -1,0 +1,40 @@
+.basic-layout {
+    height: 100vh;
+    .site-layout-background {
+        background: #fff;
+    }
+    .ant-layout-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .logo {
+        background-image: url('../images/Logo1.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        height: 30px;
+        margin: 15px;
+    }
+    .trigger {
+        font-size: 32px;
+        color: #1890ff;
+        border-radius: 5%;
+
+    }
+
+    .user-info-header {
+        display: flex;
+        align-items: center;
+        color: orange;
+        font-size: 20px;
+        margin-right: 20px;
+        .user-infos {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px 0 15px;
+            line-height: 20px;
+        }
+    }
+}
