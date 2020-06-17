@@ -49,8 +49,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // $data = User::find({'email': '1'});
-        return response()->json('22222222', 200);
+        $data = User::where('id', $id)->get();
+        return response()->json($data, 200);
     }
 
     /**
@@ -73,7 +73,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'password' => 'required|max:255',
+            'level' => 'required'
+        ]);
+        User::whereId($id)->update($validatedData);
+        return response()->json($validatedData, 200);
     }
 
     /**
@@ -84,10 +91,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $contact = User::find($id);
-        $contact->delete();
-
-        return back()->with('sussces', 'done');
+        $data = User::findOrFail($id);
+        $data->delete();
+        return view('user.list');
     }
 
     public function login(Request $request)

@@ -1,88 +1,71 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import Layout from '../Layout'
-import { Table, Popconfirm, message } from 'antd'
+import { Button, Input, Select, Alert } from 'antd'
 import axios from 'axios'
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import 'antd/dist/antd.css'
+import { UserOutlined, MailOutlined, EllipsisOutlined } from '@ant-design/icons'
+import '../../../sass/User.scss'
 
-if (document.getElementById('listuser')) {
-    ReactDOM.render(<ListUserPage />, document.getElementById('listuser'))
+const { Option } = Select
+if (document.getElementById('createuser')) {
+    ReactDOM.render(<CreateUser />, document.getElementById('createuser'))
 }
 
-function ListUserPage() {
+function CreateUser() {
     return <Layout>
-        <TableListUser />
+        <Register />
     </Layout>
 }
 
-function ListActions(text, record) {
-    function deleteUser(text, record) {
-        let id = text.id
-        axios.delete(`/user/${id}`)
+function Register() {
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
+    const [level, setLevel] = useState()
+    const [password, setPassword] = useState()
+    const [status, setStatus] = useState('todo')
+    const handleActionRegister = () => {
+        axios.post('/user', {
+            'name': name,
+            'email': email,
+            'level': level,
+            'password': password,
+        })
             .then(res => {
-                message.success('Xoá thành công !');
+                console.log('res', res)
+                setStatus('done')
+            })
+            .catch(e => {
+                setStatus('fail')
             })
     }
-
+    const sucess = <Alert
+        message="Thành công"
+        description="Hãy truy cập vào trang chủ để trải nghiệm dịch vụ!"
+        type="success"
+        showIcon
+    />
+    const error = <Alert
+        message="Thất bại"
+        description="Hãy kiểm tra để khắc phục những sai sót!"
+        type="error"
+        showIcon
+    />
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-            <EditOutlined style={{ color: 'gray', margin: '0 5px' }} />
-            <Popconfirm
-                title={`Bạn có muốn xoá người người dùng ${text.name} ?`}
-                onConfirm={deleteUser(text, record)}
-                onCancel={cancel}
-                okText="Có"
-                cancelText="Không"
-            >
-                <DeleteOutlined style={{ color: 'gray', margin: '0 5px' }} />
-            </Popconfirm>
+        <div className='register-form add-user'>
+            {status == 'done' ? sucess : null}
+            {status == 'fail' ? error : null}
+            <span style={{ fontSize: '30px', textAlign: 'center', margin: '30px' }}> Thêm tài khoản </span>
+            <Input value={name} onChange={e => setName(e.target.value)} prefix={<UserOutlined />} />
+            <Input value={email} onChange={e => setEmail(e.target.value)} prefix={<MailOutlined />} />
+            <Input value={password} onChange={e => setPassword(e.target.value)} prefix={<EllipsisOutlined />} type='password' />
+            <Select defaultValue="admin" onChange={value => setLevel(value)}>
+                <Option value="admin">Admin</Option>
+                <Option value="teacher">Teacher</Option>
+                <Option value="student"> Student </Option>
+            </Select>
+            <Button onClick={handleActionRegister}> Register </Button>
         </div>
     )
 }
 
-function TableListUser() {
-    const [data, setData] = useState()
-    
-    useEffect(() => {
-        axios.get('/user')
-            .then(res => {
-                setData(res.data)
-            })
-    }, [status])
-
-    const columns = [
-        {
-            title: 'Name',
-            dataIndex: 'name',
-            sorter: true,
-        },
-        {
-            title: 'Vị trí',
-            dataIndex: 'level',
-            filters: [
-                { text: 'Admin', value: 'admin' },
-                { text: 'Teacher', value: 'teacher' },
-                { text: 'Student', value: 'student' },
-            ],
-        },
-        {
-            title: 'Email',
-            dataIndex: 'email',
-        },
-        {
-            title: 'Action',
-            align: 'center',
-            render: (text, record) => ListActions(text, record)
-        },
-    ]
-
-    return (
-        <Table
-            columns={columns}
-            dataSource={data}
-        />
-    )
-}
-
-export default ListUserPage
+export default CreateUser

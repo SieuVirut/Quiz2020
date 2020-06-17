@@ -1,0 +1,21 @@
+.add-user, .detail-user {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 50px;
+    max-width: 400px;
+    .ant-input-affix-wrapper, .ant-select {
+        margin: 10px 0;
+    }
+    .ant-btn {
+        width: 200px;
+        height: 70px;
+        margin: auto;
+        background-color: orange;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}

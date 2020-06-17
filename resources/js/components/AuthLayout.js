@@ -44,11 +44,10 @@ function AboutProject() {
 function Register() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
-    const [level, setLevel] = useState()
+    const [level, setLevel] = useState('teacher')
     const [password, setPassword] = useState()
     const [status, setStatus] = useState('todo')
     const handleActionRegister = () => {
-        console.log(level)
         axios.post('/user', {
             'name': name,
             'email': email,
@@ -60,7 +59,7 @@ function Register() {
                 setStatus('done')
             })
             .catch(e => {
-                // setStatus('fail')
+                setStatus('fail')
             })
     }
     if (status == 'todo') {
@@ -70,7 +69,7 @@ function Register() {
                 <Input value={name} onChange={e => setName(e.target.value)} prefix={<UserOutlined />} />
                 <Input value={email} onChange={e => setEmail(e.target.value)} prefix={<MailOutlined />} />
                 <Input value={password} onChange={e => setPassword(e.target.value)} prefix={<EllipsisOutlined />} type='password' />
-                <Select defaultValue="admin" onChange={value => setLevel(value)}>
+                <Select value={level} onChange={value => setLevel(value)}>
                     <Option value="admin">Admin</Option>
                     <Option value="teacher">Teacher</Option>
                     <Option value="student"> Student </Option>

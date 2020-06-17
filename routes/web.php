@@ -19,5 +19,12 @@ Route::get('/', function () {
 Route::get('/users', function(){
     return view('users.list');
 });
+Route::get('/adduser', function(){
+    return view('users.create');
+});
+Route::get('/detailuser', function(){
+    return view('users.show');
+});
+
 Route::resource('user', 'UserController');
 Route::post('/login', 'UserController@login');

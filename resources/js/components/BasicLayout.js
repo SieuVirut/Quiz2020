@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Layout, Menu, Button, Avatar } from 'antd'
-import { useHistory, Link } from "react-router-dom"
+import { Layout, Menu, Avatar } from 'antd'
+import { useHistory } from "react-router-dom"
 
 import {
     MenuUnfoldOutlined,
@@ -57,8 +57,8 @@ function BasicLayout({ children }) {
                     </SubMenu>
                     <SubMenu icon={<TeamOutlined />} title='Quản lí người dùng' >
                         <Menu.Item key="4" onClick={() => window.location.replace('/users')} icon={<TeamOutlined />} > Danh sách người dùng </Menu.Item>
-                        <Menu.Item key="5" onClick={() => window.location.replace('/users/create')} icon={<UserAddOutlined />} > Thêm người dùng </Menu.Item>
-                        <Menu.Item key="6" onClick={() => window.location.replace('/users/detail')} icon={<UserOutlined />}> Chi tiết người dùng </Menu.Item>
+                        <Menu.Item key="5" onClick={() => window.location.replace('/adduser')} icon={<UserAddOutlined />} > Thêm người dùng </Menu.Item>
+                        <Menu.Item key="6" onClick={() => window.location.replace('/detailuser')} icon={<UserOutlined />}> Chi tiết người dùng </Menu.Item>
                     </SubMenu>
                     <SubMenu icon={<SolutionOutlined />} title='Kiểm tra' >
                         <Menu.Item key="4" onClick={() => window.location.replace('/quiz/list')} icon={<SolutionOutlined />} > Thư viện đề </Menu.Item>
