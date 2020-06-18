@@ -51,9 +51,8 @@ function BasicLayout({ children }) {
                 <div className="logo" />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                     <SubMenu icon={<VideoCameraOutlined />} title='Quản lí khoá học' >
-                        <Menu.Item key="1" onClick={() => window.location.replace('/course')} icon={<VideoCameraOutlined />} > Danh sách khoá học </Menu.Item>
-                        <Menu.Item key="2" onClick={() => window.location.replace('/course/create')} icon={<VideoCameraAddOutlined />} > Tạo khoá học </Menu.Item>
-                        <Menu.Item key="3" onClick={() => window.location.replace('/course/detail')} icon={<VideoCameraOutlined />}> Chi tiết khoá học </Menu.Item>
+                        <Menu.Item key="1" onClick={() => window.location.replace('/courses')} icon={<VideoCameraOutlined />} > Danh sách khoá học </Menu.Item>
+                        <Menu.Item key="2" onClick={() => window.location.replace('/addcourse')} icon={<VideoCameraAddOutlined />} > Tạo khoá học </Menu.Item>
                     </SubMenu>
                     <SubMenu icon={<TeamOutlined />} title='Quản lí người dùng' >
                         <Menu.Item key="4" onClick={() => window.location.replace('/users')} icon={<TeamOutlined />} > Danh sách người dùng </Menu.Item>

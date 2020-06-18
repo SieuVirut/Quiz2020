@@ -1,0 +1,41 @@
+.my-course, .market-course {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-height: calc(100vh - 300px);
+    overflow-y: scroll;
+    .ant-card {
+        margin: 10px;
+        &:hover {
+            background-color: greenyellow;
+            border: 20px;
+        }
+    } 
+}
+
+.form-create-course {
+    display: flex;
+    flex-direction: column;
+    .header {
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 32px;
+    }
+    .list-lesson {
+        .btn-add-lesson {
+            flex-direction: row-reverse ;
+        }
+    }
+    .btn-add-course {
+        text-align: center;
+        .ant-btn {
+            width: 300px;
+            height: 70px;
+            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    }
+}

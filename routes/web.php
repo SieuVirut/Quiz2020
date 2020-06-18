@@ -16,15 +16,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/users', function(){
+Route::get('/users', function () {
     return view('users.list');
 });
-Route::get('/adduser', function(){
+Route::get('/adduser', function () {
     return view('users.create');
 });
-Route::get('/detailuser', function(){
+Route::get('/detailuser', function () {
     return view('users.show');
 });
 
 Route::resource('user', 'UserController');
 Route::post('/login', 'UserController@login');
+
+Route::get('/courses', function () {
+    return view('course.list');
+});
+Route::get('/addcourse', function () {
+    return view('course.create');
+});
+Route::get('/detailcourse/{id}', function ($id) {
+    // return view('course.detail');
+    return 'Hello' . $id;
+});
+
+Route::resource('course', 'CourseController');

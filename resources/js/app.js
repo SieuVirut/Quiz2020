@@ -16,3 +16,7 @@ require('./bootstrap');
 require('./components/user/list');
 require('./components/user/create');
 require('./components/user/detail');
+
+require('./components/course/list');
+require('./components/course/create');
+require('./components/course/detail');
