@@ -14,7 +14,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $data = Quizs::get();
+        return response()->json($data, 200);
     }
 
     /**
@@ -35,7 +36,9 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $post = Quizs::create($data);
+        return response()->json($post, 201);
     }
 
     /**
@@ -46,7 +49,8 @@ class QuizController extends Controller
      */
     public function show(Quizs $quizs)
     {
-        //
+        $data = Quizs::where('id', $quizs)->get();
+        return response()->json($data, 200);
     }
 
     /**
@@ -81,5 +85,11 @@ class QuizController extends Controller
     public function destroy(Quizs $quizs)
     {
         //
+    }
+    public function getQuizById(Request $request)
+    {
+        $id = $request->id;
+        $data = Quizs::where('id', $id)->get();
+        return response()->json($data, 200);
     }
 }

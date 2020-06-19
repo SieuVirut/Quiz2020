@@ -1,0 +1,109 @@
+.form-create-quiz {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 30px);
+    .header {
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 32px;
+    }
+    .btn-add-quiz {
+        text-align: center;
+        margin-top: 50px;
+        .ant-btn {
+            width: 300px;
+            height: 70px;
+            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    }
+}
+
+.list-quest {
+    display: flex;
+    flex-direction: column;
+    .quest-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .ant-space-item {
+            width: 100%;
+            margin-right: unset !important;
+        }
+        .question {
+        }
+        .answer-item {
+            display: flex;
+            flex-direction: row;
+            align-self: flex-end;
+        }
+    }
+}
+
+.list-answer {
+    width: 60% !important;
+    margin-left: 200px;
+}
+
+.quiz-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card-quiz-item {
+        margin: 10px;
+        .ant-card-meta-title {
+            height: 20px;
+        }
+        .ant-card-meta-description {
+            height: 30px;
+            text-overflow: ellipsis;
+        }
+        &:hover {
+            border: 20px;
+        }
+    } 
+}
+
+.quiz-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .list-question {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        .question-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            .quest-index {
+                font-weight: bold;
+                color: black;
+                font-size: 16px;
+            }
+            .quest {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .answer {
+                margin-left: 30px;
+            }
+            .option {
+                font-size: 14px;
+                margin: 5px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: cadetblue;
+                &:hover, &.choosed {
+                    background-color: greenyellow;
+                }
+            }
+        }
+    }
+}

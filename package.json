@@ -29,6 +29,7 @@
         "antd": "^4.3.4",
         "css-loader": "^3.6.0",
         "react-router-dom": "^5.2.0",
-        "style-loader": "^1.2.1"
+        "style-loader": "^1.2.1",
+        "uuid": "^8.1.0"
     }
 }

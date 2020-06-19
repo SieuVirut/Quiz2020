@@ -54,15 +54,14 @@ function BasicLayout({ children }) {
                         <Menu.Item key="1" onClick={() => window.location.replace('/courses')} icon={<VideoCameraOutlined />} > Danh sách khoá học </Menu.Item>
                         <Menu.Item key="2" onClick={() => window.location.replace('/addcourse')} icon={<VideoCameraAddOutlined />} > Tạo khoá học </Menu.Item>
                     </SubMenu>
+                    <SubMenu icon={<SolutionOutlined />} title='Kiểm tra' >
+                        <Menu.Item key="7" onClick={() => window.location.replace('/quizs')} icon={<SolutionOutlined />} > Thư viện đề </Menu.Item>
+                        <Menu.Item key="8" onClick={() => window.location.replace('/addquiz')} icon={<FileProtectOutlined />} > Tạo mới đề </Menu.Item>
+                    </SubMenu>
                     <SubMenu icon={<TeamOutlined />} title='Quản lí người dùng' >
                         <Menu.Item key="4" onClick={() => window.location.replace('/users')} icon={<TeamOutlined />} > Danh sách người dùng </Menu.Item>
                         <Menu.Item key="5" onClick={() => window.location.replace('/adduser')} icon={<UserAddOutlined />} > Thêm người dùng </Menu.Item>
                         <Menu.Item key="6" onClick={() => window.location.replace('/detailuser')} icon={<UserOutlined />}> Chi tiết người dùng </Menu.Item>
-                    </SubMenu>
-                    <SubMenu icon={<SolutionOutlined />} title='Kiểm tra' >
-                        <Menu.Item key="4" onClick={() => window.location.replace('/quiz/list')} icon={<SolutionOutlined />} > Thư viện đề </Menu.Item>
-                        <Menu.Item key="5" onClick={() => window.location.replace('/quiz/create')} icon={<FileProtectOutlined />} > Tạo mới đề </Menu.Item>
-                        <Menu.Item key="6" onClick={() => window.location.replace('/quiz/detail')} icon={<UploadOutlined />}> Thi thử </Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import Layout from '../Layout'
 import { Card, Avatar, Button } from 'antd'
-// import axios from 'axios'
-// import { UserOutlined, MailOutlined, EllipsisOutlined } from '@ant-design/icons'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons'
-import '../../../sass/Course.scss'
-import Axios from 'axios'
+import axios from 'axios'
 import { parseJSON } from 'jquery'
+import '../../../sass/Course.scss'
 
 const { Meta } = Card
 
