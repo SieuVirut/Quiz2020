@@ -35,9 +35,10 @@ Route::get('/courses', function () {
 Route::get('/addcourse', function () {
     return view('course.create');
 });
-Route::get('/detailcourse/{id}', function ($id) {
-    // return view('course.detail');
-    return 'Hello' . $id;
+Route::get('/getCourseByOwner/{id}', 'CourseController@getCourseByOwner');
+Route::get('/getCourseById/{id}', 'CourseController@getCourseById');
+Route::get('/detailcourse', function () {
+    return view('course.detail');
 });
 
 Route::resource('course', 'CourseController');

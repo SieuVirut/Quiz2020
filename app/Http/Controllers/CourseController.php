@@ -17,7 +17,18 @@ class CourseController extends Controller
         $data = Courses::get();
         return response()->json($data, 200);
     }
-
+    public function getCourseByOwner(Request $request)
+    {
+        $id = $request->id;
+        $data = Courses::where('owner', $id)->get();
+        return response()->json($data, 200);
+    }
+    public function getCourseById(Request $request)
+    {
+        $id = $request->id;
+        $data = Courses::where('id', $id)->get();
+        return response()->json($data, 200);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -49,8 +60,7 @@ class CourseController extends Controller
      */
     public function show(Courses $courses)
     {
-        $data = Courses::where('owner', 1)
-            ->get();
+        $data = Courses::where('id', $courses)->get();
         return response()->json($data, 200);
     }
 

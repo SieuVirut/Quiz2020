@@ -47,18 +47,21 @@ function MyCourse() {
     const [data, setData] = useState()
     let id = parseJSON(localStorage.getItem('userInfo')).id
     useEffect(() => {
-        axios.get(`/course/${id}`)
+        axios.get(`/getCourseByOwner/${id}`)
             .then(res => {
                 let data = res && res.data
                 setData(data)
             })
             .catch(e => console.log(e))
     }, [])
-    let actions = [
-        <Button>Vào học</Button>,
-        // <Button>Gỡ bỏ</Button>,
-    ]
-    let content = data && data.map(item => CardCourseItem(item.id, item.name, item.description, actions))
+    let content = data && data.map(item => {
+        let actions = [
+            <a href={`/detailcourse?id=${item.id}`}>
+                <Button>Vào học</Button>
+            </a>
+        ]
+        return CardCourseItem(item.id, item.name, item.description, actions)
+    })
     return (
         <div className='my-course'> {content}  </div>
     )
