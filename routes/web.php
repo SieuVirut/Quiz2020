@@ -55,4 +55,7 @@ Route::get('/addquiz', function () {
 Route::get('/detailquiz', function () {
     return view('quizs.detail');
 });
+Route::get('/editquiz', function () {
+    return view('quizs.edit');
+});
 Route::get('/getQuizById/{id}', 'QuizController@getQuizById');

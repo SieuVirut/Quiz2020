@@ -73,7 +73,17 @@ class QuizController extends Controller
      */
     public function update(Request $request, Quizs $quizs)
     {
-        //
+        $id = $request->id;
+        $validatedData = $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'time' => 'required',
+            'quest' => 'required',
+            'owner' => 'required',
+            'description' => 'required'
+        ]);
+        Quizs::whereId($id)->update($validatedData);
+        return response()->json($validatedData, 200);
     }
 
     /**

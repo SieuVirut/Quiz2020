@@ -46,6 +46,9 @@ function CardQuizItem(item) {
             }
             actions={[<a href={`/detailquiz?id=${item.id}`}>
                 <Button>Vào thi</Button>
+            </a>,
+            <a href={`/editquiz?id=${item.id}`}>
+                <Button>Sửa</Button>
             </a>]}
         >
             <Meta

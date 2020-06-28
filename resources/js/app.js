@@ -25,3 +25,4 @@ require('./components/course/edit');
 require('./components/quiz/list');
 require('./components/quiz/create');
 require('./components/quiz/detail');
+require('./components/quiz/edit');
