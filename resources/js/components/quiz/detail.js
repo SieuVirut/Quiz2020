@@ -89,7 +89,7 @@ function DetailQuiz() {
     function Option(idQuest, ans) {
         let idAns = ans && ans.id
         if (!idAns) return
-        return <div className={`option`} onClick={() => onChangeAns(idQuest, idAns)}> <input type='checkbox' /> <span> {ans.option} </span></div>
+        return <div className={`option`} ><label> <input onClick={() => onChangeAns(idQuest, idAns)} type='checkbox' />  {ans.option} </label></div>
     }
 
     function onChangeAns(idQuest, idAns) {
