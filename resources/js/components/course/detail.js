@@ -43,14 +43,21 @@ function DetailCourse() {
         <div className='course-detail'>
             <div className='course-header'> {data && data.name} </div>
             <div className='watch-lesson'>
-                <iframe width="560" height="315" src={lesson && getEmbedLinkYoutube(lesson.link)} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe
+                    width="560"
+                    height="315"
+                    src={lesson && getEmbedLinkYoutube(lesson.link)}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
             </div>
             <div className='course-content'>
                 <div className='course-content-letf'>
                     {data && data.lesson && data.lesson.map(e => LessonItem(e))}
                 </div>
                 <div className='course-course-right'>
-                    {lesson && lesson.quiz && <Button> Kiểm tra </Button>}
+                    {lesson && lesson.quiz && <a href={`detailquiz?id=${lesson.quiz}`}><Button> Kiểm tra </Button></a>}
                     <span>{lesson && lesson.description || data && data.description}</span>
                 </div>
             </div>

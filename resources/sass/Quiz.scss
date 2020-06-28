@@ -33,6 +33,9 @@
             width: 100%;
             margin-right: unset !important;
         }
+        .id {
+            display: none;
+        }
         .question {
         }
         .answer-item {
@@ -102,6 +105,15 @@
                 background-color: cadetblue;
                 &:hover, &.choosed {
                     background-color: greenyellow;
+                }
+                position: relative;
+                input {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 5px;
+                    right: 0;
+                    top: 0;
                 }
             }
         }

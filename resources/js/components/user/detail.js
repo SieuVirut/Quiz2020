@@ -21,7 +21,7 @@ function DetailUser() {
 function Register() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
-    const [level, setLevel] = useState()
+    const [level, setLevel] = useState('admin')
     const [password, setPassword] = useState()
     const [status, setStatus] = useState('todo')
     let id = parseJSON(localStorage.getItem('userInfo')).id

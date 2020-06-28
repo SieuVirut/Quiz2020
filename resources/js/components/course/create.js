@@ -27,7 +27,7 @@ function FormCreateCourse() {
     const formItemLayout = {
         labelCol: {
             xs: { span: 24 },
-            sm: { span: 4 },
+            sm: { span: 8 },
         },
         wrapperCol: {
             xs: { span: 24 },
@@ -59,7 +59,7 @@ function FormCreateCourse() {
     />
     const lessonItem = (field, remove) => {
         return (
-            <Space key={field.key} style={{ display: 'flex', marginBottom: 8 }} align="start" className='lession-item'>
+            <Space key={field.key} className='lession-item'>
                 <Form.Item
                     {...field}
                     name={[field.name, 'name']}
@@ -97,7 +97,14 @@ function FormCreateCourse() {
                     fieldKey={[field.fieldKey, 'quiz']}
                     rules={[{ required: false }]}
                 >
-                    <Input />
+                    <Select
+                        // mode="multiple"
+                        placeholder="Chọn đề kiểm tra"
+                        filterOption={false}
+                        style={{ width: '100px', maxWidth: '100px', minWidth: '100px' }}
+                    >
+                        {quiz && quiz.length > 0 && quiz.map(i => <Option key={i.id} value={i.id}>{i.name}</Option>)}
+                    </Select>
                 </Form.Item>
                 <MinusCircleOutlined
                     onClick={() => {
@@ -109,6 +116,8 @@ function FormCreateCourse() {
     }
 
     const [teachers, setTeachers] = useState()
+    const [quiz, setQuiz] = useState()
+
     useEffect(() => {
         axios.get('/user')
             .then(res => {
@@ -119,6 +128,17 @@ function FormCreateCourse() {
             })
             .catch(e => console.log(e))
     }, [])
+
+    useEffect(() => {
+        axios.get('/quiz')
+            .then(res => {
+                let q = res && res.data
+                if (!q.length) return
+                setQuiz(q)
+            })
+            .catch(e => console.log(e))
+    }, [])
+
     return (
         <div className='form-create-course'>
             <span className='header' > Tạo khoá học </span>

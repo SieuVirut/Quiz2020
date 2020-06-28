@@ -6,6 +6,7 @@ import axios from 'axios'
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons'
 import '../../../sass/Quiz.scss'
 import { parseJSON } from 'jquery'
+import { v4 as uuidv4 } from 'uuid';
 const { TextArea } = Input
 const { Option } = Select
 if (document.getElementById('addquiz')) {
@@ -69,6 +70,15 @@ function FormCreateQuiz() {
                 </Form.Item>
                 <Form.Item
                     {...ans}
+                    name={[ans.name, 'id']}
+                    fieldKey={[ans.fieldKey, 'id']}
+                    className='id'
+                    initialValue={uuidv4()}
+                >
+                    <Input type='hidden' />
+                </Form.Item>
+                <Form.Item
+                    {...ans}
                     name={[ans.name, 'isAns']}
                     fieldKey={[ans.fieldKey, 'isAns']}
                     valuePropName="checked"
@@ -94,6 +104,15 @@ function FormCreateQuiz() {
                         placeholder="Mô tả của đề thi"
                         autoSize={{ minRows: 1, maxRows: 6 }}
                     />
+                </Form.Item>
+                <Form.Item
+                    {...quest}
+                    name={[quest.name, 'id']}
+                    fieldKey={[quest.fieldKey, 'id']}
+                    className='id'
+                    initialValue={uuidv4()}
+                >
+                    <Input type='hidden' />
                 </Form.Item>
                 <Form.List
                     {...quest}

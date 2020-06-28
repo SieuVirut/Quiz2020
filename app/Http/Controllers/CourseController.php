@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Courses;
+use App\Quizs;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -84,7 +85,17 @@ class CourseController extends Controller
      */
     public function update(Request $request, Courses $courses)
     {
-        //
+        $id = $request->id;
+        $validatedData = $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'lesson' => 'required',
+            'teachers' => 'required',
+            'owner' => 'required',
+        ]);
+        Courses::whereId($id)->update($validatedData);
+        return response()->json($validatedData, 200);
     }
 
     /**

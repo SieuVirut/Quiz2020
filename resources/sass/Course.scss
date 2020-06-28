@@ -108,3 +108,35 @@
         }
     }
 }
+
+.list-lesson {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .lession-item {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: space-between;
+        .ant-space-item {
+            display: flex;
+            height: 100px;
+            margin: 0 0 0 0 !important;
+            margin-right: unset !important;
+            .ant-form-item {
+                margin: 0 0 0 0 !important;
+                line-height: 3em;
+                display: flex;
+                flex-direction: column;
+                max-width: unset !important;
+                .ant-form-item-label {
+                    max-width: unset !important;
+                    text-align: left;
+                }
+                .ant-form-item-control {
+                    max-width: unset !important;
+                }
+            }
+        }
+    }
+}

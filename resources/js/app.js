@@ -20,6 +20,7 @@ require('./components/user/detail');
 require('./components/course/list');
 require('./components/course/create');
 require('./components/course/detail');
+require('./components/course/edit');
 
 require('./components/quiz/list');
 require('./components/quiz/create');

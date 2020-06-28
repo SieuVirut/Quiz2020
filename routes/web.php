@@ -41,15 +41,18 @@ Route::get('/getCourseById/{id}', 'CourseController@getCourseById');
 Route::get('/detailcourse', function () {
     return view('course.detail');
 });
+Route::get('/editcourse', function () {
+    return view('course.edit');
+});
 
 Route::resource('quiz', 'QuizController');
-Route::get('/quizs', function(){
+Route::get('/quizs', function () {
     return view('quizs.list');
 });
-Route::get('/addquiz', function(){
+Route::get('/addquiz', function () {
     return view('quizs.create');
 });
-Route::get('/detailquiz', function(){
+Route::get('/detailquiz', function () {
     return view('quizs.detail');
 });
 Route::get('/getQuizById/{id}', 'QuizController@getQuizById');

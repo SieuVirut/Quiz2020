@@ -55,7 +55,10 @@ function MyCourse() {
         let actions = [
             <a href={`/detailcourse?id=${item.id}`}>
                 <Button>Vào học</Button>
-            </a>
+            </a>,
+            <a href={`/editcourse?id=${item.id}`}>
+                <Button>Sửa</Button>
+            </a>,
         ]
         return CardCourseItem(item.id, item.name, item.description, actions)
     })
