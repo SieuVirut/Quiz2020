@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { Layout, Menu, Button, Avatar, Input, Select, Alert } from 'antd'
 import { UserOutlined, MailOutlined, EllipsisOutlined } from '@ant-design/icons'
+import AboutProject from './AboutProject'
 import axios from 'axios'
 import '../../sass/AuthLayout.scss'
 
@@ -32,12 +33,6 @@ function Login() {
             <Input value={password} onChange={e => setPassword(e.target.value)} prefix={<EllipsisOutlined />} />
             <a href={'/'}><Button onClick={handleActionLogin}> Login </Button> </a>
         </div>
-    )
-}
-
-function AboutProject() {
-    return (
-        <div className='about-project'> About Project </div>
     )
 }
 
