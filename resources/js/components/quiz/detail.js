@@ -45,10 +45,10 @@ function DetailQuiz() {
 
     function countDown() {
         let timeCountDown = window.timeLeft - Date.now()
-        let hours = Math.floor((timeCountDown / (1000 * 60 * 60)) % 24)
-        let minutes = Math.floor((timeCountDown / 1000 / 60) % 60)
-        let seconds = Math.floor((timeCountDown / 1000) % 60)
-        let t = `${hours}h : ${minutes}m : ${seconds} s`
+        let hours = `0${Math.floor((timeCountDown / (1000 * 60 * 60)) % 24)}`.slice(-2)
+        let minutes = `0${Math.floor((timeCountDown / 1000 / 60) % 60)}`.slice(-2)
+        let seconds = `0${Math.floor((timeCountDown / 1000) % 60)}`.slice(-2)
+        let t = `${hours}:${minutes}:${seconds}`
         if (timeCountDown >= 0) {
             setTime(t)
         } else {
@@ -56,10 +56,10 @@ function DetailQuiz() {
         }
     }
     function setTimeDefault(t0) {
-        let hours = Math.floor((t0 / (60 * 60)) % 24)
-        let minutes = Math.floor((t0 / 60) % 60)
-        let seconds = Math.floor((t0) % 60)
-        let t = `${hours}h : ${minutes}m : ${seconds} s`
+        let hours = `0${Math.floor((t0 / (60 * 60)) % 24)}`.slice(-2)
+        let minutes = `0${Math.floor((t0 / 60) % 60)}`.slice(-2)
+        let seconds = `0${Math.floor((t0) % 60)}`.slice(-2)
+        let t = `${hours}:${minutes}:${seconds}`
         setTime(t)
     }
 
@@ -76,7 +76,7 @@ function DetailQuiz() {
     function QuesionItem(quest, index) {
         let id = quest.id
         return <div className='question-item'>
-            <span className='quest-index'> Câu hỏi {index}: </span>
+            <span className='quest-index'> Câu hỏi {index + 1}: </span>
             <div className='quest'> {quest.question}</div>
             <div className='answer'>
                 {quest.answer && quest.answer.map(ans => {
@@ -89,7 +89,7 @@ function DetailQuiz() {
     function Option(idQuest, ans) {
         let idAns = ans && ans.id
         if (!idAns) return
-        return <div className={`option`} onClick={() => onChangeAns(idQuest, idAns)}> <input type='checkbox' /> {ans.option} </div>
+        return <div className={`option`} onClick={() => onChangeAns(idQuest, idAns)}> <input type='checkbox' /> <span> {ans.option} </span></div>
     }
 
     function onChangeAns(idQuest, idAns) {
@@ -141,7 +141,7 @@ function DetailQuiz() {
             <div className='quiz-detail-header'>
                 <div className='quiz-name'>{data && data.name}</div>
                 <div className='quiz-description'>{data && data.description}</div>
-                <div className={'time-count'}>Thời gian làm bài:{time}</div>
+                <div className={'time-count'}>Thời gian: {time}</div>
             </div>
             <div className='quiz-content'>
                 {status == 'todo' && <Button onClick={() => setStatus('doing')}> Bắt đầu</Button>}

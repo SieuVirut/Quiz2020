@@ -106,16 +106,44 @@
                 &:hover, &.choosed {
                     background-color: greenyellow;
                 }
-                position: relative;
-                input {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    left: 5px;
-                    right: 0;
-                    top: 0;
-                }
+                // position: relative;
+                // display: inline-block;
+                // width: 100%;
+                // input {
+                //     position: absolute;
+                //     width: 100%;
+                //     height: 100%;
+                //     left: 5px;
+                //     // right: 0;
+                //     top: 0;
+                // }
             }
         }
+    }
+    .ant-btn {
+        background-color: olivedrab;
+        width: 200px;
+        height: 50px;
+        color: whitesmoke;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin: auto;
+    }
+}
+.quiz-detail-header {
+    display: flex;
+    flex-direction: column;
+    .quiz-name {
+        font-size: 28px;
+        justify-content: center;
+        flex: 1;
+    }
+    .quiz-description {
+        flex: 1;
+        text-align: left;
+    }
+    .time-count {
+        font-size: 20px;
+        text-align: right;
     }
 }
