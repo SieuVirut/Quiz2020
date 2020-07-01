@@ -34,12 +34,14 @@ function DetailQuiz() {
     }, [])
 
     useEffect(() => {
+        let startClock = setInterval(countDown, 1000)
         if (status == 'doing') {
             window.timeLeft = Date.now() + data.time * 1000
-            setInterval(countDown, 1000)
+        } else {
+            if (startClock) clearInterval(startClock)
         }
         return () => {
-            clearInterval(countDown)
+            if (startClock) clearInterval(startClock)
         }
     }, [status])
 
@@ -55,6 +57,7 @@ function DetailQuiz() {
             setStatus('done')
         }
     }
+
     function setTimeDefault(t0) {
         let hours = `0${Math.floor((t0 / (60 * 60)) % 24)}`.slice(-2)
         let minutes = `0${Math.floor((t0 / 60) % 60)}`.slice(-2)
